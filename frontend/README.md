@@ -38,6 +38,9 @@ frontend/
 ...
 ```
 
+[`src/app/api/copilotkit/route.ts`](src/app/api/copilotkit/route.ts) is the CopilotKit API endpoint which interacts with the backend based on AG-UI.
+[`src/features/chat/Chat.tsx`](src/features/chat/Chat.tsx) is the main chat component utilizing CopilotKit for the AI chat interface.
+
 ## Tech Stack
 
 - **Next.js 16** - React framework with App Router and Turbopack
