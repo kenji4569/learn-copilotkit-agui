@@ -1,0 +1,14 @@
+{
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
+    },
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true
+  },
+  "files.trimTrailingWhitespace": true,
+  "cSpell.words": [
+    "nearme"
+  ],
+}
