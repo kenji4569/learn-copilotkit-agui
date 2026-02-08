@@ -33,6 +33,8 @@ backend/
 ...
 ```
 
+The core file is [`src/features/agent/router.py`](src/features/agent/router.py), which uses AG-UI to return simple responses.
+
 ## Tech Stack
 
 - **FastAPI** - Modern Python web framework
