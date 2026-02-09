@@ -18,7 +18,16 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Add shadcn UI Components
+
+### Quality Checks
+
+```bash
+pnpm lint
+pnpm format:check
+pnpm type-check
+```
+
+### Add shadcn UI Components
 
 When you need to add a shadcn component, run a command like this:
 
@@ -39,7 +48,7 @@ frontend/
 │   │   │       └── route.ts      # **CopilotKit API endpoint**
 │   │   ├── layout.tsx            # Root layout
 │   │   └── page.tsx              # Home page
-│   ├── components/.              # Base components
+│   ├── components/               # Base components
 │   │── features/
 │   │   └── chat/                 # Chat feature
 │   │       ├── components/
