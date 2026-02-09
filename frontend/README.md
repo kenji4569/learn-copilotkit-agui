@@ -18,6 +18,15 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Add shadcn UI Components
+
+When you need to add a shadcn component, run a command like this:
+
+```bash
+pnpm dlx shadcn@latest add calendar
+```
+
+
 
 ## Directory Structure
 
