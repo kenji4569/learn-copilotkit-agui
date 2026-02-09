@@ -27,6 +27,8 @@ async def agent_post(request: Request) -> StreamingResponse:
             event_stream = generate_event_stream_for_get_time(thread_id, run_id)
         elif content == "Say hello to someone":
             event_stream = generate_event_stream_for_say_hello(thread_id, run_id)
+        elif content == "Select a date from a calendar":
+            event_stream = generate_event_stream_for_select_date(thread_id, run_id)
         else:
             event_stream = generate_event_stream_for_echo(thread_id, run_id, content)
     else:
@@ -181,6 +183,42 @@ async def generate_event_stream_for_say_hello(thread_id, run_id):
             "type": "TOOL_CALL_ARGS",
             "toolCallId": tool_id,
             "delta": '{"name":"guest"}',
+        }
+    )
+    yield encode_sse_event({"type": "TOOL_CALL_END", "toolCallId": tool_id})
+
+    yield encode_sse_event(
+        {
+            "type": "RUN_FINISHED",
+            "threadId": thread_id,
+            "runId": run_id,
+            "result": "",
+        }
+    )
+
+
+async def generate_event_stream_for_select_date(thread_id, run_id):
+    logging.info("Generating select_date event stream")
+    yield encode_sse_event(
+        {"type": "RUN_STARTED", "threadId": thread_id, "runId": run_id}
+    )
+
+    tool_id = f"tool-{uuid.uuid4().hex[:8]}"
+    yield encode_sse_event(
+        {
+            "type": "TOOL_CALL_START",
+            "toolCallId": tool_id,
+            "toolCallName": "selectDate",
+        }
+    )
+
+    minDate = datetime.date.today().isoformat()
+    maxDate = (datetime.date.today() + datetime.timedelta(days=7)).isoformat()
+    yield encode_sse_event(
+        {
+            "type": "TOOL_CALL_ARGS",
+            "toolCallId": tool_id,
+            "delta": '{"minDate":"' + minDate + '", "maxDate":"' + maxDate + '"}',
         }
     )
     yield encode_sse_event({"type": "TOOL_CALL_END", "toolCallId": tool_id})
