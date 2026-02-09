@@ -48,6 +48,8 @@ frontend/
 - **Tailwind CSS** - Utility-first CSS framework
 - **CopilotKit** - AI copilot framework for chat interface
 
+*For an example using shadcn, please refer to [this branch](https://github.com/kenji4569/learn-copilotkit-agui/tree/feat/shadcn).*
+
 ### Development Tools
 - **ESLint** - Code linting
 - **Prettier** - Code formatting
