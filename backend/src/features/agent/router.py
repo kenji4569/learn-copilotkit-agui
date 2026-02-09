@@ -76,7 +76,7 @@ async def generate_event_stream_for_echo(thread_id, run_id, content):
                 "delta": word + (" " if i < len(words) - 1 else ""),
             }
         )
-        time.sleep(0.1)  # Simulate delay
+        time.sleep(0.02)  # Simulate delay
 
     yield encode_sse_event({"type": "TEXT_MESSAGE_END", "messageId": msg_id})
     yield encode_sse_event(
@@ -123,7 +123,7 @@ async def generate_event_stream_for_get_time(thread_id, run_id):
             "delta": '{"timezone":"Asia/Tokyo"}',
         }
     )
-    time.sleep(0.5)  # Simulate delay
+    time.sleep(0.2)  # Simulate delay
     yield encode_sse_event({"type": "TOOL_CALL_END", "toolCallId": tool_id})
 
     now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))
