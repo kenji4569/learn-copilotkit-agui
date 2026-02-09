@@ -33,6 +33,5 @@
     "npm.packageManager": "npm",
     "cSpell.words": [
         "copilotkit",
-        "nearme",
     ],
 }

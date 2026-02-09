@@ -32,14 +32,13 @@ export default function RootLayout({
         <div className='flex min-h-screen w-full flex-col md:flex-row'>
           <aside className='w-full border-b border-gray-200 p-6 md:w-1/5 md:border-r md:border-b-0'>
             <a
-              href='https://agent.nearme.jp/'
+              href='https://github.com/kenji4569/learn-copilotkit-agui/'
               target='_blank'
               rel='noopener noreferrer'
               className='flex items-center space-x-2'>
-              <Image aria-hidden src='/globe.svg' alt='Globe icon' width={16} height={16} />
-              <span>Go to a current chat site →</span>
+              <Image aria-hidden src='/github.svg' alt='Github icon' width={16} height={16} />
+              <span>Repository</span>
             </a>
-            <div className='mt-4 text-2xl font-bold'>NearMe AI Agent</div>
           </aside>
           <main className='flex w-full flex-1 items-start justify-center'>
             <div className='h-full w-full max-w-2xl'>
