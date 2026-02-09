@@ -1,25 +1,22 @@
 'use client'
 
-import { useRenderToolCall } from '@copilotkit/react-core'
 import { CopilotChat } from '@copilotkit/react-ui'
 
 import { CustomAssistantMessage } from './components/CustomAssistantMessage'
-import { GetTimeResult } from './components/RenderGetTimeToolCall'
-import { useCustomPrompt } from './hooks/useCustomPrompt'
+import { useCustomTools } from './hooks/useCustomTools'
 
 export const Chat: React.FC = () => {
-  useRenderToolCall({
-    name: 'get_time',
-    render: (props) => {
-      if (props.status !== 'complete') {
-        return <div>Calling get_time API...</div>
-      }
+  useCustomTools()
 
-      return <GetTimeResult {...props} />
+  const suggestions = [
+    {
+      title: 'Say something',
+      message:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
-  })
-
-  const { prompt } = useCustomPrompt()
+    { title: 'Get Time', message: 'Get time in Tokyo' },
+    { title: 'Say Hello', message: 'Say hello to someone' },
+  ]
 
   return (
     <CopilotChat
@@ -27,9 +24,9 @@ export const Chat: React.FC = () => {
       labels={{
         title: 'Hello Copilotkit and AG-UI',
         initial: 'Hello. How can I help you?',
-        placeholder: prompt?.placeholder ?? 'Type your message...',
+        placeholder: 'Type your message...',
       }}
-      suggestions={prompt?.suggestions}
+      suggestions={suggestions}
       AssistantMessage={CustomAssistantMessage}
     />
   )
