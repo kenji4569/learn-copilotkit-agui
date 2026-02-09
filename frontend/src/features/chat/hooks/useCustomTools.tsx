@@ -1,8 +1,9 @@
 'use client'
 
-import { useFrontendTool, useRenderToolCall } from '@copilotkit/react-core'
+import { useFrontendTool, useHumanInTheLoop, useRenderToolCall } from '@copilotkit/react-core'
 
-import { GetTimeResult } from '../components/RenderGetTimeToolCall'
+import { DateSelector } from '../components/DateSelector'
+import { GetTimeResult } from '../components/GetTimeResult'
 
 export const useCustomTools = () => {
   useRenderToolCall({
@@ -32,6 +33,41 @@ export const useCustomTools = () => {
       alert(`Hello, ${name}!`)
 
       return { greetedAt }
+    },
+  })
+
+  useHumanInTheLoop({
+    name: 'selectDate',
+    description: 'Let the user select a date from a calendar.',
+    parameters: [
+      {
+        name: 'minDate',
+        type: 'string',
+        description: 'The minimum selectable date in YYYY-MM-DD format.',
+        required: false,
+      },
+      {
+        name: 'maxDate',
+        type: 'string',
+        description: 'The maximum selectable date in YYYY-MM-DD format.',
+        required: false,
+      },
+    ],
+    render: ({ args, status, respond, result }) => {
+      if (status === 'executing' && respond) {
+        return (
+          <DateSelector
+            minDate={args.minDate}
+            maxDate={args.maxDate}
+            onDateSelect={(date) => respond({ selectedDate: date })}
+          />
+        )
+      }
+      if (status === 'complete' && result) {
+        return <div className='p-2 text-sm text-gray-600'>{result.selectedDate}</div>
+      }
+
+      return <div />
     },
   })
 }

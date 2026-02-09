@@ -16,6 +16,7 @@ export const Chat: React.FC = () => {
     },
     { title: 'Get Time', message: 'Get time in Tokyo' },
     { title: 'Say Hello', message: 'Say hello to someone' },
+    { title: 'Select Date', message: 'Select a date from a calendar' },
   ]
 
   return (
