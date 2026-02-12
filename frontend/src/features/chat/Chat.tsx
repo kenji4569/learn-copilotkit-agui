@@ -3,10 +3,12 @@
 import { CopilotChat } from '@copilotkit/react-ui'
 
 import { CustomAssistantMessage } from './components/CustomAssistantMessage'
+import { useCustomStates } from './hooks/useCustomStates'
 import { useCustomTools } from './hooks/useCustomTools'
 
 export const Chat: React.FC = () => {
   useCustomTools()
+  useCustomStates()
 
   const suggestions = [
     {
@@ -15,8 +17,10 @@ export const Chat: React.FC = () => {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
     { title: 'Get Time', message: 'Get time in Tokyo' },
-    { title: 'Say Hello', message: 'Say hello to someone' },
+    { title: 'Say Hello', message: 'Say hello to me' },
     { title: 'Select Date', message: 'Select a date from a calendar' },
+    { title: 'Recommend Spots', message: 'Recommend tourist spots in Tokyo' },
+    { title: 'Get Price', message: 'Get price of the tour' },
   ]
 
   return (
