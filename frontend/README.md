@@ -20,6 +20,24 @@ pnpm dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
+### Quality Checks
+
+```bash
+pnpm lint
+pnpm format:check
+pnpm type-check
+```
+
+### Add shadcn UI Components
+
+When you need to add a shadcn component, run a command like this:
+
+```bash
+pnpm dlx shadcn@latest add calendar
+```
+
+Note that you can enhance your AI code assistant by utilizing the [Shadcn MCP server](https://ui.shadcn.com/docs/mcp), which currently configured in `.vscode/mcp.json`.
+
 ## Directory Structure
 
 ```
@@ -31,11 +49,13 @@ frontend/
 │   │   │       └── route.ts      # **CopilotKit API endpoint**
 │   │   ├── layout.tsx            # Root layout
 │   │   └── page.tsx              # Home page
-│   └── features/
-│       └── chat/                 # Chat feature
-│           ├── components/
-│           ├── hooks/
-│           └── Chat.tsx          # **Main chat component**
+│   ├── components/               # Base components
+│   │── features/
+│   │   └── chat/                 # Chat feature
+│   │       ├── components/
+│   │       ├── hooks/
+│   │       └── Chat.tsx          # **Main chat component**
+│   └── lib/                      # Library code
 ...
 ```
 
@@ -47,6 +67,7 @@ frontend/
 - **Next.js 16** - React framework with App Router and Turbopack
 - **React 19** - UI library
 - **Tailwind CSS** - Utility-first CSS framework
+- **Shadcn UI** - Component library built on Radix UI and Tailwind CSS
 - **CopilotKit** - AI copilot framework for chat interface
 
 ### Development Tools
