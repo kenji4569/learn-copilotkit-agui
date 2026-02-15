@@ -7,3 +7,9 @@ Please refer to the READMEs under each directory for detailed setup steps.
 - Frontend: [frontend/README.md](frontend/README.md)
 
 Note that the backend does not use an LLM; it simply returns responses based purely on AG-UI. If you use an LLM adapter, the abstraction becomes too strong and most of the AG-UI-specific code is hidden.
+
+## Examples
+
+- Send Message
+
+![Send Message Example](docs/images/send_message.png)
