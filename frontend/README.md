@@ -5,7 +5,8 @@ Next.js frontend with CopilotKit integration for AI-powered chat interface.
 *This is originated from following Next.js Starters*
 - [**Next.js 16 Starter Core**](https://github.com/SiddharthaMaity/nextjs-16-starter-core)
 - [**Next.js 16 Starter with Tailwind CSS**](https://github.com/SiddharthaMaity/nextjs-16-starter-tailwind)
-- [**Next.js 16 Starter with Shadcn UI**](https://github.com/siddharthamaity/nextjs-16-starter-shadcn)
+
+*For an example using shadcn, please refer to [this branch](https://github.com/kenji4569/learn-copilotkit-agui/tree/feat/shadcn).*
 
 ## Getting Started
 
@@ -47,8 +48,6 @@ frontend/
 - **React 19** - UI library
 - **Tailwind CSS** - Utility-first CSS framework
 - **CopilotKit** - AI copilot framework for chat interface
-
-*For an example using shadcn, please refer to [this branch](https://github.com/kenji4569/learn-copilotkit-agui/tree/feat/shadcn).*
 
 ### Development Tools
 - **ESLint** - Code linting
